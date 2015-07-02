@@ -1,0 +1,10 @@
+# Temp files
+*~
+\#*\#
+
+# Latex things for resume
+Resumes/*.aux
+Resumes/*.log
+Resumes/*.out
+Resumes/*.pdf
+Resumes/*.synctex.gz
