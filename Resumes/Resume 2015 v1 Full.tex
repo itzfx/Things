@@ -1,0 +1,205 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[usenames]{color}
+\usepackage{fullpage}
+\usepackage[hidelinks]{hyperref}
+\usepackage{nopageno}
+
+\leftmargin=0.25in
+\oddsidemargin=0.25in
+\textwidth=6.0in
+\topmargin=-0.25in
+\textheight=9.25in
+
+\raggedright
+
+\pagenumbering{arabic}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+
+
+% DEFINITIONS
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}
+}
+
+\newcommand{\lineover}{
+  \begin{changemargin}{-0.05in}{-0.05in}
+    \vspace*{-8pt}
+    \hrulefill \\
+    \vspace*{-2pt}
+  \end{changemargin}
+}
+
+\newcommand{\header}[1]{
+  \begin{changemargin}{-0.5in}{-0.5in}
+    \scshape{#1}\\
+  \lineover
+  \end{changemargin}
+}
+
+\newcommand{\contact}[5]{
+  \begin{changemargin}{-0.5in}{-0.5in}
+    \begin{center}
+      {\Large \scshape {#1}}\\ \smallskip
+      {#2} | {#3}\\ \smallskip
+      {#4} | {#5}\\ \smallskip
+    \end{center}
+  \end{changemargin}
+}
+
+\newenvironment{body} {
+  \vspace*{-16pt}
+  \begin{changemargin}{-0.25in}{-0.5in}
+  }
+  {\end{changemargin}
+}
+
+% END DEFINITIONS
+
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contact Info
+\contact{Johnny Lee}
+        {\href{mailto:itzfx2@gmail.com}{itzfx2@gmail.com}}
+        {(626) 274-1140}
+        {\href{https://www.linkedin.com/in/jlee1031}{linkedin.com/in/jlee1031}}
+        {\href{https://github.com/itzfx}{github.com/itzfx}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Career
+\header{Career History}
+
+\begin{body}
+  \vspace{14pt}
+  \textbf{Software Engineer}, \emph{Yelp Inc.}, San Francisco, CA \hfill \emph{May 2012 - Present}\\
+  \vspace*{-4pt}
+  \begin{itemize} \itemsep -0pt  % reduce space between items
+
+    \item Served as the project lead of a group of 4 engineers for the ``Message the Business'' feature.
+    \begin{itemize} \itemsep -0pt
+      \item Scoped the size of the project with the product manager and the technical lead.
+      \item Designed the underlying schema for each part of the feature such as the MySQL database tables, the handling of asynchronous tasks using Gearman, and potential error states for users sending or replying to a message.
+      \item Involved in creating methods to collect metrics about the use of the feature. These methods included use of MapReduce over access logs and designing complex but efficient SQL queries (queries were generated through an Object Relational Mapper).
+      \item Designed and implemented the ``reply by email'' feature. This included multiple layers of security considerations since email is inherently insecure.
+    \end{itemize}
+
+    \item One of the primary developers working to convert the biz.yelp.com backend to a more ``Service Oriented Architecture''.
+    \begin{itemize} \itemsep -0pt
+      \item Identified and moved pages and features on biz.yelp.com that could be most easily extracted from the existing monolith style codebase to the new backend service.
+      \item Created runbooks that detailed the steps that need to be taken to move a feature from the monolith to the backend service for future developers.
+    \end{itemize}
+
+    \item One of the primary developers for ``Self-Serve Packaged Yelp Ads'' which allows business owners to purchase advertising along with other products, such as call tracking, at a discount.
+    \begin{itemize} \itemsep -0pt
+      \item Integrated the application of ``promotion codes'' during a purchase.
+      \item Developed a method to measure servlet timings to compare the efficiency of the new servlets versus the old servlets for ``Self-Serve Yelp Ads''.
+      \item Implemented tracking of users' progress through the purchase flow to measure conversions.
+      \item Designed the storage and retrieval of packages. Packages had multiple dimensions to keep track of such as product, pricing, and applicable categories.
+    \end{itemize}
+
+    \item Took over responsibility of the ``Your Business On Yelp'' email newsletter backend.
+    \begin{itemize} \itemsep -0pt
+      \item The original engineers that were responsible for the feature left the company.
+      \item Figured out and documented the workflow for making sure that the metrics shown to business owners were correct and generated on time for the newsletter.
+      \item Developed a plan to add new features to make managing the newsletter easier.
+    \end{itemize}
+
+    \item Served as the project lead of a group of 4 engineers to redesign the Yelp Business Owner's site.
+    \begin{itemize} \itemsep -0pt
+      \item Completely updated the frontend of the Yelp Business Owner's site.
+      \item Backend was updated to use Elastic Search to help business owners with multiple locations search for their locations quickly.
+      \item Used Service Oriented Architecture to speed up development time for the team. Separated out features that did not depend on the rest of the code base to its own service.
+      \item Refactored legacy code that was causing bottlenecks in the response time for the new design. The bottleneck made the website unusably slow for the owners of some of the largest businesses.
+    \end{itemize}
+
+    \item One of the primary developers for the ``Call To Action'' button.
+    \begin{itemize} \itemsep -0pt
+      \item Designed and refined the underlying database schema.
+      \item Created the business logic that determined whether a business qualified for the feature.
+      \item Used MapReduce to extract metrics from log data.
+    \end{itemize}
+
+    \item Miscellanous responsibilities.
+    \begin{itemize} \itemsep -0pt
+      \item Triaged and fixed major bugs found in code owned by Biz-team, including ones considered emergencies.
+      \item Participated in technical breakdowns for projects I was not assigned as an engineer on.
+      \item Extended functionality of a contact form to make it easier for business owners to fill out the form by search for their business rather than by filling in the information themselves.
+      \item Screened resumes and conducted technical interviews for Yelp engineering applicants.
+      \item Mentored multiple interns and new hires.
+    \end{itemize}
+
+    \item Work involved using: Python, Javascript, Cheetah, Testify, pytest, Tron, MRJob, Git, etc...
+
+  \end{itemize}
+
+  \textbf {Software Engineer}, \emph{Global Aerospace Corp.}, Altadena, CA \hfill \emph{Oct 2009 - Dec 2012}\\
+  \vspace*{-4pt}
+  \begin{itemize} \itemsep -0pt
+    \item Contributed to Dakota, a tool to simulate the performance of rechargeable lithium-ion batteries, and the framework for simulating complex real-world physics using object oriented programming methods.
+    \item Identified mathematical problems in the first-principles model Dakota was based upon and implemented solutions given by the modeler.
+    \item Optimized existing code created by previous employees through careful analysis and redesign.
+    \item Used the Facade design pattern to create a complex object by reusing existing simple objects.
+    \item Work involved using: Java, JUnit, Ant, SVN, etc...
+  \end{itemize}
+\end{body}
+
+\smallskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Education
+\header{Education}
+
+\begin{body}
+  \vspace{14pt}
+  \textbf{B.A. Computer Science}, \emph{University of California}, Berkeley, CA \hfill \emph{Graduated: December 2012} \\
+\end{body}
+
+\smallskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Projects
+\header{Notable Academic Projects}
+
+\begin{body}
+  \vspace{14pt}
+  \textbf{Parallel Conjugate Gradient Solver} \hfill {} \emph{Fall 2012}\\
+  \vspace*{-4pt}
+  \begin{itemize} \itemsep -0pt
+    \item Led a group of three students on a class project to parallelize a simple conjugate gradient solver.
+    \item The algorithm fell into the map-reduce pattern.
+    \item Parallelized solution on a machine with 16 cores showed a speed up of 10 times.
+    \item OpenCL solution showed less speed up, theoretically due to the sparse nature of the matrix involved.
+  \end{itemize}
+
+  \textbf{Multi-threaded Network Go Game} \hfill {} \emph{Fall 2011}\\
+  \vspace*{-4pt}
+  \begin{itemize} \itemsep -0pt
+    \item Led a team of five students on the class project: delegating work, making sure components would interact together properly, settling disputes, and validating design decisions made by the group.
+    \item Developed both the client and server for an online Go game using manually created synchronization objects (Locks, Semaphores, Thread-safe Queues).
+    \item The server could replay old games stored in databases.
+  \end{itemize}
+\end{body}
+
+\smallskip
+
+
+\end{document}
